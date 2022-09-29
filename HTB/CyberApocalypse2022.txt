@@ -1,0 +1,15 @@
+Warmup - Look in Discord ca-rules HTB{l3t_th3_in3rg4l4ct1c_ch4s3_b3g1n!}
+WIDE:
+Open WIDE ELF in ghidra
+Look in "menu" function for password "sup3rs3cr3tw1d3"
+./wide db.ex then enter 6 and enter password
+HTB{str1ngs_4r3nt_4lw4ys_4sc11}
+
+Space Pulse:
+
+
+                                                                                                                                                                                     
+
+                                                                                                                                                                                              
+
+ 
