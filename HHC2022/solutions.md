@@ -46,22 +46,22 @@
     $foo | Add-Content -Path 'Recipe'
 
 #### The attacker ran this command against a file multiple times, what was the name of the file?
-- recipe.txt
+```recipe.txt```
 
 #### Were any files deleted?
-- Yes
+```Yes```
 
 ##### Was the original file deleted?
-- No
+```No```
 
 #### What is the event ID that showed the command being executed?
-- 4104
+```4104```
 
 #### Was the secret ingredient compromised?
-- Yes
+```Yes```
 
 #### What was the secret ingredient?
-- honey (this was modified to fish oil + the output of 4103 ```cat .\recipe.txt states it is secret ingredient```)
+```honey``` (this was modified to fish oil + the output of 4103 ```cat .\recipe.txt states it is secret ingredient```)
 
 ## Suricata Regatta:
 
