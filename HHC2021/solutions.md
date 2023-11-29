@@ -42,7 +42,7 @@
          $s
    }
 
-Change candycane to ```c@ndycane```
+- Change candycane to ```c@ndycane```
 
 ## rule yara_rule_1056 
    
@@ -60,7 +60,7 @@ Change candycane to ```c@ndycane```
          all of them
    }    
 
-Change rogram!! to ```rogram?!```
+- Change rogram!! to ```rogram?!```
 
 ## rule yara_rule_1732 
    
@@ -97,17 +97,17 @@ Change rogram!! to ```rogram?!```
          10 of them
    }
 
-Change HolidayHackChallenge{NotReallyAFlag} to ```HolidayHackChalleng3{NotReallyAFlag}```
-Change dastardly string to ```datardly_string```
-Change naughty string to ```naughty_string```
-Change __frame_dummy_init_array_entry to ```__fram3_dummy_init_array_entry```
-Change __do_global_dtors_aux_fini_array_entry to ```__d0_global_dtors_aux_fini_array_entry```
-Change its_a_holly_jolly_variable to ```its_a_ho1ly_jolly_variable```
-Change .eh_frame_hdr to ```.eh_frame_hDr```
-Change __FRAME_END__ to ```__FRAME_3ND__```
-Change __GNU_EH_FRAME_HDR to ```__GNU_EH_FRAM3_HDR```
-Change __cxa_finalize to ```__cx@_finalize```
-Change __libc_start_main@@GLIBC_2.2.5 to ```__libc_start_ma1n@@GLIBC_2.2.5```
+- Change HolidayHackChallenge{NotReallyAFlag} to ```HolidayHackChalleng3{NotReallyAFlag}```
+- Change dastardly string to ```datardly_string```
+- Change naughty string to ```naughty_string```
+- Change __frame_dummy_init_array_entry to ```__fram3_dummy_init_array_entry```
+- Change __do_global_dtors_aux_fini_array_entry to ```__d0_global_dtors_aux_fini_array_entry```
+- Change its_a_holly_jolly_variable to ```its_a_ho1ly_jolly_variable```
+- Change .eh_frame_hdr to ```.eh_frame_hDr```
+- Change __FRAME_END__ to ```__FRAME_3ND__```
+- Change __GNU_EH_FRAME_HDR to ```__GNU_EH_FRAM3_HDR```
+- Change __cxa_finalize to ```__cx@_finalize```
+- Change __libc_start_main@@GLIBC_2.2.5 to ```__libc_start_ma1n@@GLIBC_2.2.5```
 
 # EXIFtool challenge
 
