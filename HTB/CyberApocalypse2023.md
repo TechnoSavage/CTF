@@ -5,16 +5,16 @@ nc 165.232.100.46 30002
 ```HTB{g3t_r34dy_f0r_s0m3_pwn}```
 
 ## Questionnaire:
-nc 165.232.98.69 30697
-64-bit
-Dynamic
-vuln()
-0x20
-gg()
-fgets()
-40
-gdb ./test -> gdb p gg
-0x401176
+- nc 165.232.98.69 30697
+- 64-bit
+- Dynamic
+- vuln()
+- 0x20
+- gg()
+- fgets()
+- 40
+- gdb ./test -> gdb p gg
+- 0x401176
 ```HTB{th30ry_bef0r3_4cti0n}```
 
     
