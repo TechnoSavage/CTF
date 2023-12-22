@@ -1,6 +1,7 @@
 # Name: Debugging Interface 
 ## Category: Hardware 
 ## Difficulty: Very Easy
+## Description: We accessed the embedded device's asynchronous serial debugging interface while it was operational and captured some messages that were being transmitted over it. Can you decode them?
 
 ### Download and extract zip archive that contains ```debugging_interface_signal.sal```
 - .sal is the file extension for Saleae Logic
