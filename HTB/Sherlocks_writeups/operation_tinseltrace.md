@@ -1,4 +1,4 @@
-[OpTinselTrace-1](https://github.com/TechnoSavage/CTF/blob/main/HTB/Sherlocks_writeups/operation_tinseltrace1#optinseltrace-1)
+[OpTinselTrace-1](https://github.com/TechnoSavage/CTF/blob/main/HTB/Sherlocks_writeups/operation_tinseltrace.md#optinseltrace-1)
 
 
 # OpTinselTrace-1
