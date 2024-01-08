@@ -18,7 +18,7 @@
 - enter a game
 - pause in debugger
 - expand global variables
-- make modifications e.g. increase player health, set elf, santa throw delay to extremely high number, increase speed. Win
+- make modifications e.g. increase player health, set elf/santa throw delay to extremely high number, increase speed. Win
 
 ## Santa's Surf Shack
 
@@ -86,12 +86,12 @@ Correct submission is ```3, 6, and 9 are hallucinations```
 
 ### Hashcat
 
-Game was slow so copied hash and password list to local kali
+Copy hash and password list to system with hashcat 
 
     hashcat --identify hhc2023.hash
     hashcat -m 18200 hhc2023.hash hhc2023.passwords
     
-    IluvC4ndyC4nes!
+```IluvC4ndyC4nes!```
 
 ## Ostrich Saloon
 
@@ -102,6 +102,7 @@ search for binaries with suid
 ```find / -perm /4000```
 
 - /usr/bin/simplecopy runs as root
+
 ```ls -l /usr/bin/simplecopy```
 
 - let's test it out
@@ -131,7 +132,7 @@ Fix the QR code then scan for URL
 
 http://8bitelf.com
 
-flag:santaconfusedgivingplanetsqrcode
+```flag:santaconfusedgivingplanetsqrcode```
 
 ## Squarewheel Yard
 
@@ -163,14 +164,21 @@ Choose ```0```, ```9```, and ```nan``` in your card values and repeat until reac
 ## Rainraster Cliffs
 
 ### Elf Hunt
-Start game
-Open Developer Tools
-Go to Application -> Cookies -> Elf Hunt to reveal JWT token
-Decode token in e.g. CyberChef
-Decoded Token
+
+- Start game
+
+- Open Developer Tools
+
+- Go to Application -> Cookies -> Elf Hunt to reveal JWT token
+
+- Decode token in e.g. CyberChef
+
+- Decoded Token
 ```{"alg":"none","typ":"JWT"}{"speed": -500}```
-Change speed to e.g ```{"speed": -50000}```, base64 encode and replace the value between the periods.
-Substitute this value for the one in dev tools
+
+- Change speed to e.g ```{"speed": -50000}```, base64 encode and replace the value between the periods.
+
+- Substitute this value for the one in dev tools to slow the elves and reach the required score
 
 # Steampunk Island
 
@@ -179,6 +187,7 @@ Substitute this value for the one in dev tools
 ### Faster Lock Combination
 
 - Follow the process outlined in HelpfulLockPicker's video https://www.youtube.com/watch?v=27rE5ZvWLU0
+
 - Summarized here:
     Find "sticky" number (s):
         - Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order)
