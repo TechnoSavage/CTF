@@ -70,11 +70,11 @@ After dissecting the report and failing I used Burp to brute force answer then r
 - Capture submission request
 - Forward to Intruder
 - Select "Cluster bomb" because we want to test all possible combinations
-- Assign payload positions to each of the nine submission fields e.g. ```input-1=§one§&input-2=§two§&...```
-- Switch to payloads and create nine payload sets consisting of a simple list of ```0``` and ```1``` for each one
+- Assign payload positions to each of the nine submission fields e.g. `input-1=§one§&input-2=§two§&...`
+- Switch to payloads and create nine payload sets consisting of a simple list of `0` and `1` for each one
 - This should equate to 512 total requests; when finished launch attack
 
-Correct submission is ```3, 6, and 9 are hallucinations```
+Correct submission is `3, 6, and 9 are hallucinations`
 
 - 3 CVE is represented as CWE, port number nonsensical
 
@@ -104,7 +104,7 @@ Copy hash and password list to system with hashcat
 `hashcat --identify hhc2023.hash`<br>
 `hashcat -m 18200 hhc2023.hash hhc2023.passwords`
     
-```IluvC4ndyC4nes!```
+`IluvC4ndyC4nes!`
 
 ## Ostrich Saloon
 
@@ -112,19 +112,19 @@ Copy hash and password list to system with hashcat
 
 search for binaries with suid
 
-```find / -perm /4000```
+`find / -perm /4000`
 
 - /usr/bin/simplecopy runs as root
 
-```ls -l /usr/bin/simplecopy```
+`ls -l /usr/bin/simplecopy`
 
 - let's test it out
 
-```simplecopy /root/runtoanswer ~/```
+`simplecopy /root/runtoanswer ~/`
 
 - Investigating the binary reveals that it executes 'cp %s %s' so we can inject commands
 
-```strings /usr/bin/simplecopy```
+`strings /usr/bin/simplecopy`
     
     simplecopy foo "/tmp && whoami"
     root
@@ -145,13 +145,13 @@ Fix the QR code then scan for URL
 
 http://8bitelf.com
 
-```flag:santaconfusedgivingplanetsqrcode```
+`flag:santaconfusedgivingplanetsqrcode`
 
 ## Squarewheel Yard
 
 ### Luggage Lock
 Decode as if you would a real wheel lock (as much as possible) 
-```7484``` 
+`7484`
 
 ### Fishing Challenge
 
@@ -166,7 +166,7 @@ Basically look through emails and see if sending domain matches return path and 
 ## Chiaroscuro City 
 
 ### Na'an
-Choose ```0```, ```9```, and ```nan``` in your card values and repeat until reaching a score of 10 
+Choose `0`, `9`, and `nan` in your card values and repeat until reaching a score of 10 
 
 ## Gumshoe Alley PI Office
 
@@ -201,38 +201,45 @@ Choose ```0```, ```9```, and ```nan``` in your card values and repeat until reac
 
 - Follow the process outlined in HelpfulLockPicker's video https://www.youtube.com/watch?v=27rE5ZvWLU0
 
-- Summarized here:
-    Find "sticky" number (s):<br>
-        - Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order)<br>
-        - Apply tension to shackle until dial siezes<br>
-        - Remove tension until dial can rotate<br>
-        - Cycle through counter clockwise rotation noting the number where there is a consistent hitch or force to overcome (sticky number)<br>
-        First digit in combination is `s + 5` 
+Find "sticky" number (*s*):
 
-    Find "guess" numbers and remainder:<br>
-        - Locate the two numbers between 0-11 which have their gates resting between whole numbers<br>
-        - To locate the gates apply tension and rotate clockwise, tension will cause the locking mechanism to fall into a gate, with tension applied turn back and forth to find the edges of the gate whether those stopping points land on a whole number marker or between numbers<br>
-        - Add the two numbers to get the base number for finding the third digit: `x + y = z`  
-        - Divide the base number by 4 noting the remainder: z % 4 = r
+1. Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order)
+2. Apply tension to shackle until dial siezes
+3. Remove tension until dial can rotate
+4. Cycle through counter clockwise rotation noting the number where there is a consistent hitch or force to overcome (sticky number)
 
-    Create third digit table and find third digit to combination:<br>
-        - take x and y and add 10 three times<br>
-        `x, x+10, x+20, x+30`<br>
-        `y, y+10, y+20, y+30`<br>
-        - Discard any numbers that do not have the same remainder r when divided by 4<br>
-        - Test remaining numbers by turning to them on the dial and applying tension, attempt to rotate dial and note resistance<br>
-        - The number with the least resistance is more likely to be the third number
+First digit in combination is *s* + 5 
 
-    Create second digit table:<br>
-        - take r and add 2 and 6 respecitvely to create rx and ry: `r + 2 = rx, r + 6 = ry`<br>
-        - Add 8 to rx and ry four times to find possible seconds digits, numbers over 40 cycle over e.g. 42 = 2<br>
-        `rx, rx+8, rx+16, rx+24, rx+32`<br>
-        `ry, ry+8, ry+16, ry+24, ry+32`<br>
-        - Eliminate any numbers that are within 2 of 0(40)
+Find "guess" numbers and remainder:
 
-    Test possible combinations using found first and third digits and possible second digits until the combination is cracked
+1. Locate the two numbers between **0-11** which have their gates resting between whole numbers
+2. To locate the gates apply tension and rotate clockwise, tension will cause the locking mechanism to fall into a gate, with tension applied turn back and forth to find the edges of the gate whether those stopping points land on a whole number marker or between numbers
+3. Add the two numbers to get the base number for finding the third digit: *x* + *y* = *z*  
+4. Divide the base number by **4** noting the remainder: *z* % 4 = *r*
 
-- You can also manipulate client side variables as in snowball fight to solve this challenge e.g. look to see combination under sources > global > lock_numbersn and even set your own
+Create third digit table and find third digit to combination:
+
+1. take *x* and *y* and add **10** three times
+
+>x, x+10, x+20, x+30<br>
+>y, y+10, y+20, y+30
+
+2. Discard any numbers that do not have the same remainder *r* when divided by **4**
+3. Test remaining numbers by turning to them on the dial and applying tension, attempt to rotate dial and note resistance
+4. The number with the least resistance is more likely to be the third number
+
+Create second digit table:
+
+1. take *r* and add **2** and **6** respecitvely to create *rx* and *ry*: *r* + 2 = *rx*, *r* + 6 = *ry*
+2. Add **8** to *rx* and *ry* four times to find possible second digits (numbers over **40** cycle over e.g. 42 = 2)
+
+>rx, rx+8, rx+16, rx+24, rx+32<br>
+>ry, ry+8, ry+16, ry+24, ry+32
+
+3. Eliminate any numbers that are within **2** of **0**(**40**)
+4. Test possible combinations using found first and third digits and possible second digits until the combination is cracked
+
+You can also manipulate client side variables as in snowball fight to solve this challenge e.g. look to see combination under sources > global > lock_numbersn and even set your own
 
 ## Coggoggle Marina
 
