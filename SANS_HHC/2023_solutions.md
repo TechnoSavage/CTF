@@ -1,8 +1,13 @@
 [Christmas Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Christmas%20Island)
+
 [Island of Misfit Toys](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Island%20of%20Misfit%20Toys)
+
 [Film Noir Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Film%20Noir%20Island)
+
 [Pixel Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Pixel%20Island)
+
 [Steampunk Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Steampunk%20Island)
+
 [Space Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Space%20Island)
 
 # Christmas Island
@@ -13,12 +18,20 @@
 
 ### Snowball Fight
 
-- click on iframe (game window) and inspect to open developer tools
-- go to sources
-- enter a game
+- Enter the game lobby and inspect the game window (iFrame) to open developer tools
+- go to sources (chrome) or debugger (Firefox)
 - pause in debugger
-- expand global variables
-- make modifications e.g. increase player health, set elf/santa throw delay to extremely high number, increase speed. Win
+- expand global variables to see what is available
+- Noteworthy variables include hit box sizes, player health, elf & santa throw delay, snowball damage, singlePlayer: "false" (more on this below)
+- In random games with another player you can pause the game once started and adjust above values and resume to gain an edge
+- In Chrome these can be directly edited under Glocal variables while paused or entered in the console at any time. In Firefox they must be entered in the console (ensure the proper context is selected when executing)
+- to access single player mode observe the URL of the game within the lobby and private rooms (inspector, sources > room/)
+- note that in private rooms the URL ends with `&singlePlayer=false`
+- This can also be seen in reading through the room/ javascript where the URL parameters are constructed; including references to Jared...err...Elf the Dwarf joining your team if singlePlayer='true'
+- Attempting to set the Global variable to `true` while in lobby generally doesn't work but it did once though without spawning Elf the Dwarf
+- Directly navigating to the URL with `&singplePlayer=true` will spawn Elf the Dwarf but the game seems to hang at this point
+- Selecting the game context and entering `window.location.href="https://hhc23-snowball.holidayhackchallenge.com/room/?username=<username>&roomId=<room id>&roomType=private&gameType=co-op&id=<some uuid>&dna=<player dna>&singlePlayer=false"` will refresh and create the single player instance.
+- In single player the variables above can also be modified to achieve much glory! (`jaredSprite.throwDelay=1`)
 
 ## Santa's Surf Shack
 
@@ -174,9 +187,9 @@ Choose ```0```, ```9```, and ```nan``` in your card values and repeat until reac
 - Decode token in e.g. CyberChef
 
 - Decoded Token
-```{"alg":"none","typ":"JWT"}{"speed": -500}```
+`{"alg":"none","typ":"JWT"}{"speed": -500}`
 
-- Change speed to e.g ```{"speed": -50000}```, base64 encode and replace the value between the periods.
+- Change speed to e.g `{"speed": -50000}`, base64 encode and replace the value between the periods.
 
 - Substitute this value for the one in dev tools to slow the elves and reach the required score
 
@@ -189,34 +202,32 @@ Choose ```0```, ```9```, and ```nan``` in your card values and repeat until reac
 - Follow the process outlined in HelpfulLockPicker's video https://www.youtube.com/watch?v=27rE5ZvWLU0
 
 - Summarized here:
-    Find "sticky" number (s):
-        - Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order)
-        - Apply tension to shackle until dial siezes
-        - Remove tension until dial can rotate
-        - Cycle through counter clockwise rotation noting the number where there is a consistent hitch or  force to overcome (sticky number)
+    Find "sticky" number (s): \
+        - Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order) \
+        - Apply tension to shackle until dial siezes \
+        - Remove tension until dial can rotate \
+        - Cycle through counter clockwise rotation noting the number where there is a consistent hitch or force to overcome (sticky number) \
+        First digit in combination is `s + 5` 
 
-        First digit in combination is s + 5 
-
-    Find "guess" numbers and remainder:
-        - Locate the two numbers between 0-11 which have their gates resting between whole numbers
-        - To locate the gates apply tension and rotate clockwise, tension will cause the locking mechanism to fall into a gate, with tension applied turn back and forth to find the edges of the gate whether those stopping points land on a whole number marker or between numbers
-        - Add the two numbers to get the base number for finding the third digit: x + y = z 
+    Find "guess" numbers and remainder: \
+        - Locate the two numbers between 0-11 which have their gates resting between whole numbers \
+        - To locate the gates apply tension and rotate clockwise, tension will cause the locking mechanism to fall into a gate, with tension applied turn back and forth to find the edges of the gate whether those stopping points land on a whole number marker or between numbers \
+        - Add the two numbers to get the base number for finding the third digit: `x + y = z`  
         - Divide the base number by 4 noting the remainder: z % 4 = r
 
-    Create third digit table and find third digit to combination:
-        - take x and y and add 10 three times
-        x, x+10, x+20, x+30
-        y, y+10, y+20, y+30
-
-        - Discard any numbers that do not have the same remainder r when divided by 4
-        - Test remaining numbers by turning to them on the dial and applying tension, attempt to rotate dial and note resistance
+    Create third digit table and find third digit to combination: \
+        - take x and y and add 10 three times \
+        `x, x+10, x+20, x+30` \
+        `y, y+10, y+20, y+30` \
+        - Discard any numbers that do not have the same remainder r when divided by 4 \
+        - Test remaining numbers by turning to them on the dial and applying tension, attempt to rotate dial and note resistance \
         - The number with the least resistance is more likely to be the third number
 
-    Create second digit table:
-        - take r and add 2 and 6 respecitvely to create rx and ry: r + 2 = rx, r + 6 = ry
-        - Add 8 to rx and ry four times to find possible seconds digits, numbers over 40 cycle over e.g. 42 = 2
-        rx, rx+8, rx+16, rx+24, rx+32
-        ry, ry+8, ry+16, ry+24, ry+32
+    Create second digit table: \
+        - take r and add 2 and 6 respecitvely to create rx and ry: `r + 2 = rx, r + 6 = ry` \
+        - Add 8 to rx and ry four times to find possible seconds digits, numbers over 40 cycle over e.g. 42 = 2 \
+        `rx, rx+8, rx+16, rx+24, rx+32` \
+        `ry, ry+8, ry+16, ry+24, ry+32` \
         - Eliminate any numbers that are within 2 of 0(40)
 
     Test possible combinations using found first and third digits and possible second digits until the combination is cracked
