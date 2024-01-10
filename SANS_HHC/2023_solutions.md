@@ -99,7 +99,8 @@ Correct submission is ```3, 6, and 9 are hallucinations```
 
 ### Hashcat
 
-Copy hash and password list to system with hashcat \ 
+Copy hash and password list to system with hashcat
+
 `hashcat --identify hhc2023.hash` \
 `hashcat -m 18200 hhc2023.hash hhc2023.passwords`
     
