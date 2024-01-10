@@ -1,14 +1,14 @@
-[Christmas Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Christmas%20Island)
+[Christmas Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#christmas-island)
 
-[Island of Misfit Toys](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Island%20of%20Misfit%20Toys)
+[Island of Misfit Toys](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#island-of-misfit-toys)
 
-[Film Noir Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Film%20Noir%20Island)
+[Film Noir Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#film-noir-island)
 
-[Pixel Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Pixel%20Island)
+[Pixel Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#pixel-island)
 
-[Steampunk Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Steampunk%20Island)
+[Steampunk Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#steampunk-island)
 
-[Space Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#Space%20Island)
+[Space Island](https://github.com/TechnoSavage/CTF/blob/main/SANS_HHC/2023_solutions.md#space-island)
 
 # Christmas Island
 
