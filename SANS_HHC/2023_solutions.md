@@ -101,7 +101,7 @@ Correct submission is ```3, 6, and 9 are hallucinations```
 
 Copy hash and password list to system with hashcat
 
-`hashcat --identify hhc2023.hash` \
+`hashcat --identify hhc2023.hash`<br>
 `hashcat -m 18200 hhc2023.hash hhc2023.passwords`
     
 ```IluvC4ndyC4nes!```
@@ -202,32 +202,32 @@ Choose ```0```, ```9```, and ```nan``` in your card values and repeat until reac
 - Follow the process outlined in HelpfulLockPicker's video https://www.youtube.com/watch?v=27rE5ZvWLU0
 
 - Summarized here:
-    Find "sticky" number (s): \
-        - Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order) \
-        - Apply tension to shackle until dial siezes \
-        - Remove tension until dial can rotate \
-        - Cycle through counter clockwise rotation noting the number where there is a consistent hitch or force to overcome (sticky number) \
+    Find "sticky" number (s):<br>
+        - Rotate lock 3+ turns counter clockwise (that is rotating the knob clockwise such that the numbers cross the dial indicator in a counter clockwise order)<br>
+        - Apply tension to shackle until dial siezes<br>
+        - Remove tension until dial can rotate<br>
+        - Cycle through counter clockwise rotation noting the number where there is a consistent hitch or force to overcome (sticky number)<br>
         First digit in combination is `s + 5` 
 
-    Find "guess" numbers and remainder: \
-        - Locate the two numbers between 0-11 which have their gates resting between whole numbers \
-        - To locate the gates apply tension and rotate clockwise, tension will cause the locking mechanism to fall into a gate, with tension applied turn back and forth to find the edges of the gate whether those stopping points land on a whole number marker or between numbers \
+    Find "guess" numbers and remainder:<br>
+        - Locate the two numbers between 0-11 which have their gates resting between whole numbers<br>
+        - To locate the gates apply tension and rotate clockwise, tension will cause the locking mechanism to fall into a gate, with tension applied turn back and forth to find the edges of the gate whether those stopping points land on a whole number marker or between numbers<br>
         - Add the two numbers to get the base number for finding the third digit: `x + y = z`  
         - Divide the base number by 4 noting the remainder: z % 4 = r
 
-    Create third digit table and find third digit to combination: \
-        - take x and y and add 10 three times \
-        `x, x+10, x+20, x+30` \
-        `y, y+10, y+20, y+30` \
-        - Discard any numbers that do not have the same remainder r when divided by 4 \
-        - Test remaining numbers by turning to them on the dial and applying tension, attempt to rotate dial and note resistance \
+    Create third digit table and find third digit to combination:<br>
+        - take x and y and add 10 three times<br>
+        `x, x+10, x+20, x+30`<br>
+        `y, y+10, y+20, y+30`<br>
+        - Discard any numbers that do not have the same remainder r when divided by 4<br>
+        - Test remaining numbers by turning to them on the dial and applying tension, attempt to rotate dial and note resistance<br>
         - The number with the least resistance is more likely to be the third number
 
-    Create second digit table: \
-        - take r and add 2 and 6 respecitvely to create rx and ry: `r + 2 = rx, r + 6 = ry` \
-        - Add 8 to rx and ry four times to find possible seconds digits, numbers over 40 cycle over e.g. 42 = 2 \
-        `rx, rx+8, rx+16, rx+24, rx+32` \
-        `ry, ry+8, ry+16, ry+24, ry+32` \
+    Create second digit table:<br>
+        - take r and add 2 and 6 respecitvely to create rx and ry: `r + 2 = rx, r + 6 = ry`<br>
+        - Add 8 to rx and ry four times to find possible seconds digits, numbers over 40 cycle over e.g. 42 = 2<br>
+        `rx, rx+8, rx+16, rx+24, rx+32`<br>
+        `ry, ry+8, ry+16, ry+24, ry+32`<br>
         - Eliminate any numbers that are within 2 of 0(40)
 
     Test possible combinations using found first and third digits and possible second digits until the combination is cracked
