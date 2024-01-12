@@ -142,7 +142,7 @@ grep -E "(open.*){12,}" | wc -l
 - Change **__do_global_dtors_aux_fini_array_entry** to `__d0_global_dtors_aux_fini_array_entry`
 - Change **its_a_holly_jolly_variable** to `its_a_ho1ly_jolly_variable`
 - Change **.eh_frame_hdr** to `.eh_frame_hDr`
-- Change **__FRAME_END__** to `__FRAME_3ND__`
+- Change **\_\_FRAME_END\_\_** to `__FRAME_3ND__`
 - Change **__GNU_EH_FRAME_HDR** to `__GNU_EH_FRAM3_HDR`
 - Change **__cxa_finalize** to `__cx@_finalize`
 - Change **__libc_start_main@@GLIBC_2.2.5** to `__libc_start_ma1n@@GLIBC_2.2.5`
