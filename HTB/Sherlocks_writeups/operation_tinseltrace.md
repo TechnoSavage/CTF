@@ -61,7 +61,7 @@ select email from ContactEmailIndex;
 
 - To reliably get the full email subject lines we will have to reference the main-index.dat file in the same folder or switch to the MailSubjectIndex in **mail-fti.dat**
 
-- Cross referencing between the two we locat the reply message and see the subject is (logically) `re: work`
+- Cross referencing between the two we locate the reply message and see the subject is (logically) `re: work`
 
 ### Answer: `re: work`
 
