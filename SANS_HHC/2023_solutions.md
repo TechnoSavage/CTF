@@ -153,7 +153,7 @@ search for binaries with suid
 
 or 
 
-    simplecopy foo "bar ; /root/runmetoanswer
+    simplecopy foo "bar ; /root/runmetoanswer"
 
     Who delivers Christmas Presents?
 
