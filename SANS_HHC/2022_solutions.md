@@ -149,7 +149,7 @@ cat jail.key.priv
 ```
 #### Flag: `one step closer 082bb339ec19de4935867`
 
-## CI/CD:
+## Jolly CI/CD:
 
 ```    
 mkdir web shell
@@ -226,41 +226,56 @@ cat flag.txt
 
 # Web Ring
 
-## Bad IP:
+## Boria Artifacts Challenges
+
+### Naughty IP:
+
 - Open wireshark -> statistics -> protocol hierarchy
 - url encoded form data suspicious -> apply as filter
 
 #### Answer: `18.222.86.32`
 
-## Credential Mining:
+### Credential Mining:
 
 Filter:
 ``` 
-ip.src==18.222.86.32 && http 
+ip.src==18.222.86.32 && http.request.method==POST
 ```
 or
+
 ```
 ip.src==18.222.86.32 && http.request.uri contains login
 ```
 
 #### first login username: `Alice`
 
-## 404 FTW:
+### 404 FTW:
 
 first successful url:
 
 filter:
+
+``` 
+ip.src==18.222.86.32 && http.request.method==GET || ip.dst==18.222.86.32 && !http.response.code==404 
 ```
-ip.src == 18.222.86.32
- 
-ip.src==18.222.86.32 && http || ip.dst==18.222.86.32 && http && !http.response.code==404 
+
+or
+
+```
+ip.src==18.222.86.32 && http.request.method==GET || ip.dst==18.222.86.32 && http.response.code==200 
 ```
 
 #### Answer: `/proc`
 
-## IMDS, XXE, and Other Abbreviations:
+### IMDS, XXE, and Other Abbreviations:
 
-- Scroll down
+filter:
+
+```
+ip.src==18.222.86.32 && http.request.method==POST && http.request.uri contains proc || ip.dst==18.222.86.32 && http.response.code==200
+```
+
+- Scroll down and review the POSTs and responses to /proc to see the full URL being constructed
 
 #### Answer: `http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance`
 
