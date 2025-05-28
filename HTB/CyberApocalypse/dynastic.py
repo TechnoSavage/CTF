@@ -26,9 +26,19 @@
 
 # valid A-Z values between 65 and 90
 
+import re
+
+# def findValue(ph, i):
+#     v = chr(ord(ph) - 65 %26 - i + 65)
+#     return v
+
 def findValue(ph, i):
-    v = chr(ord(ph) - 65 % 26 - i + 65)
-    return v
+    acceptable = [n for n in range(65, 91)]
+    num = 0
+    v = ord(ph) % 26 - i + num
+    while v not in acceptable:
+        num += 1 
+    return chr(v)
 
 def decrypt(message):
     p = ''
