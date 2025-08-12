@@ -1,0 +1,32 @@
+ 
+ john --format=ntlm --wordlist=/usr/share/wordlists/rockyou.txt ntlm.txt
+ john --list=formats
+ john --list=formats | grep -i ntlm
+ john --format=lm --wordlist=/usr/share/wordlists/rockyou.txt ntlm.txt
+ john --format=nt --wordlist=/usr/share/wordlists/rockyou.txt ntlm.txt
+ john --format=sha512crypt etchashes.txt
+ john --single --format=Raw-md5 Joker:7bf6d9bb82bed1302f331fc6b816aada
+ john --single --format=Raw-md5 hash7.txt
+ john --list=formats | grep -i bcrypt
+ john --format=bcrypt --wordlist=/home/kali/confident_dict.txt /home/kali/hash.txt
+ john --format=md5 --wordlist=/usr/share/wordlists/rockyou.txt
+ john --format=md5 --wordlist=/usr/share/wordlists/rockyou.txt hash1.txt
+ john --format=md5 --wordlist=/usr/share/wordlists/rockyou.txt 2e728dd31fb5949bc39cac5a9f066498
+ john --format=md5 --wordlist=/usr/share/wordlists/rockyou.txt ./hash1.txt
+ john --list-formats | grep -i md5
+ john --list=formats | grep -i md5
+ john --show --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt ./hash1.txt
+ john --format=Raw-MD5 --wordlist=/usr/share/wordlists/rockyou.txt ./hash1.txt
+ john --show --format=Raw-MD5
+ john --format=list | grep -i sha
+ john --format=list-all | grep -i sha
+ john --list=formats | grep -i sha
+ john --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt ./hash2.txt
+ john --list=formats | grep -i sha256
+ john --format=Raw-SHA256 --wordlist=/usr/share/wordlists/rockyou.txt ./hash3.txt
+ john --format=Raw-SHA512 --wordlist=/usr/share/wordlists/rockyou.txt ./hash4.txt
+ john --fork=4 --format=Raw-SHA512 --wordlist=/usr/share/wordlists/rockyou.txt ./hash4.txt
+ john --list=formats | grep -i whirlpool
+ john --format=whirlpool --wordlist=/usr/share/wordlists/rockyou.txt ./hash4.txt
+ 
+ 

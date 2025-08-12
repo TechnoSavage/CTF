@@ -1,0 +1,40 @@
+rita html-report
+history | grep rita
+rita --help
+rita import ./*.log lab3
+rita --help
+rita show-beacons lab3
+rita show-beacons-fqdn lab3
+rita show-beacons-proxy
+rita show-beacons-proxy lab3
+rita show-bl_hostnames lab3
+rita show-bl-hostnames lab3
+rita show-bl-source-ips lab3
+rita show-bl-dest-ips lab3
+rita show-long-connections lab3
+rita import ./*.log lab4 
+rita show-beacons lab4
+rita show-beacons-fqdn lab4 
+rita show-long-connections lab4
+cd rita-html-report/
+rita import ./*.log lab5 
+rita show-beacons lab4 | grep -v -w -F -f exclude.txt
+rita show-beacons lab5 | grep -v -w -F -f exclude.txt >> beacons.txt 
+rita show-beacons-fqdn lab5 | grep -v -w -F -f exclude.txt >> beacons-fqdn.txt 
+rita show-beacons lab5 | head 
+rita show-beacons lab4 | head 
+rita show-beacons lab4 | grep -v -w -F -f exclude.txt
+rita show-beacons lab5 
+rita show-beacons lab5 | grep -v -w -F -f exclude.txt
+rita show-beacons lab5 | grep -v -w -F -f exclude.txt >> beacons.txt
+rita show-beacons-fqdn lab5 
+rita show-long-connections lab5 
+rita show-long-connections lab5 | grep -v -w -F -f exclude.txt
+rita show-long-connections lab5 | grep -v -w -F -f exclude.txt >> long_connections.txt
+rita show-bl-hostnames
+rita show-bl-hostnames lab5
+rita show-bl-source-ips lab5
+rita show-bl-dest-ips-ips lab5
+rita show-bl-dest-ips lab5 
+rita import ./*.log.gz lab6 
+rita show-beacons lab6
