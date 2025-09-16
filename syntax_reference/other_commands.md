@@ -1,0 +1,16 @@
+# Random commands
+
+### Mount VMware shared folders
+```
+sudo vmhgfs-fuse .host:/ /mnt/hgfs/ -o allow_other -o uid=1000
+```
+
+### find SUID/SGID files
+```
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
+
+### search file for open/access calls or 'no such file'
+```
+strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"
+```

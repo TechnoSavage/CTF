@@ -39,3 +39,16 @@ tcpdump -i any -s 0 -e src net x.x.x.x/24 and dst host x.x.x.x and tcp dst port 
 ```
 tcpdump -ni any not proto arp
 ```
+
+## Most commonly used ports in a PCAP file:
+
+```
+tcpdump -qtnp -r sample-packets.pcap 2>/dev/null | wc -l
+```
+
+### Other 
+```
+tcpdump -qtnp -r sample-packets.pcap 2>/dev/null | egrep -v '(^ARP|ICMP6)' | sed -e 's/UDP,/udp/' | awk '{print $2 " " $5 "\n" $4 " " $5}' | sed -e 's/: / /' -e 's/^.*\.//' | sort | uniq -c | sort -nr | head -20
+
+tcpdump -qtnp -r sample-packets.pcap 'tcp port 443' 2>/dev/null | head -1
+```
