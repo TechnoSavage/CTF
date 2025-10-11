@@ -37,6 +37,18 @@ Filter by encryption method
 airodump-ng wlan0 --encrypt wep
 ```
 
+filter by wifi type (example is capture 2.4 and 5GHZ)
+
+```
+airodump-ng wlan0 -b abg
+``` 
+
+filter out unassociated clients
+
+```
+airodump-ng wlan0 -a
+```
+
 Capture IVs from AP or list clients
 
 ```
