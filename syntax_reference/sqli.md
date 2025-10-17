@@ -100,7 +100,7 @@ Out-of-band SQLi
 ----------------
 
 
-
+## SQLMAP syntax
 
 
 
