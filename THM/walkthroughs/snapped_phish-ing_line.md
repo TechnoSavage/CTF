@@ -23,7 +23,8 @@ To: "William McClean" <william.mcclean@swiftspend.finance>
 
 Q: What email address was used by the adversary to send the phishing emails?
 
-```$cat Quote\ for\ Services\ Rendered\ processed\ on\ June\ 29\ 2020\ 100132\ AM.eml | grep -A2 From:
+```
+$cat Quote\ for\ Services\ Rendered\ processed\ on\ June\ 29\ 2020\ 100132\ AM.eml | grep -A2 From:
  i=goudo-k@po3.across.or.jp;	bh=cnwJ7WfEMCDPZ2GATvJORtH2t6HFtZ/E9HM2qt2JIRE=;h=Content-Type:From:To:Subject:Message-ID:Date:MIME-Version;	b=cgJW+4kMBHinVuKmA8Ru1aMH3qgb9F9QXLvO2LsrROxsnVgoB6zuyQpOEYrL1H6VQ	
  U/ThdHIrmVhBcjXRF8avzy/zdrr4XZZnj2tr+YhyQCZ0zQ7IApAJTWN9EGBmrbiO0g	
  WdRYInwsVNmhLGyYj2JR/4o7QYMbAm1tYYhfFBMNB0CkdrUZI5WQ73no5CRuOkMlaw	
