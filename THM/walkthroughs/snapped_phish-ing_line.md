@@ -121,7 +121,7 @@ Knowing that we are hunting for a gmail address, I started grepping the files fo
 
 Q: What is the hidden flag?
 
-Following the same though process as the previous question; we know from the answer format that the flag likely starts with "THM{" so grepping for that should get us to the goal
+Following the same thought process as the previous question; we know from the answer format that the flag likely starts with "THM{" so grepping for that should get us to the goal
 
 However, the flag isn't in the ZIP archive contents but rather on the fishing site
 
