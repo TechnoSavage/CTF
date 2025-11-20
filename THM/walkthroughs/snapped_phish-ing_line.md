@@ -42,18 +42,18 @@ Let's open this email in Thunderbird and download the attached html file to our 
 then we can cat the contents
 
 ```
-$cat Direct\ Credit\ Advice.html
-&lt;!DOCTYPE hxxl>
-&lt;html>
-&lt;head>
-	&lt;title>Redirecting. . .&lt;/title>
-	&lt;meta http-equiv="refresh" content="0;URL='http://kennaroads.buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe.duncan@swiftspend.finance&error'" />
-&lt;/head>
-&lt;body>
-	&lt;h1>Redirecting. . .&lt;/h1>
-	&lt;p>If you are not redirected automatically, please click &lt;a href="http://kennaroads.buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe.duncan@swiftspend.finance&error">here&lt;/a>.&lt;/p>
-&lt;/body>
-&lt;/html>
+$cat Direct\ Credit\ Advice.html 
+\<!DOCTYPE hxxl>
+\<html>
+\<head>
+	\<title>Redirecting. . .\</title>
+	\<meta http-equiv="refresh" content="0;URL='http://kennaroads.buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe.duncan@swiftspend.finance&error'" />
+\</head>
+\<body>
+	\<h1>Redirecting. . .</h1>
+	\<p>If you are not redirected automatically, please click \<a href="http://kennaroads.buzz/data/Update365/office365/40e7baa2f826a57fcf04e5202526f8bd/?email=zoe.duncan@swiftspend.finance&error">here\</a>.\</p>
+\</body>
+\</html>
 ```
 
 That's a sizable URL so I dropped it in CyberChef for a quick 'Defang URL'
