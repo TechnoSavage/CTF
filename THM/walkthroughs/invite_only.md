@@ -1,6 +1,8 @@
 # Invite Only (Easy)
 
-## 
+## Starting point
+
+- We are provided with the following defanged IP and hash to start the investigation.
 
 Flagged IP: 101[.]99[.]76[.]120
 Flagged SHA256 hash: 5d0509f68a9b7c415a726be75a078180e3f02e59866f193b0a99eee8e39c874f
@@ -11,7 +13,7 @@ Launch TryDetectThis2.0
 
 - Search the hash in Virustotal offline
 
-![syshelpers.exe](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/name.png?raw=true)
+![syshelpers.exe](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/file.png?raw=true)
 
 `syshelpers.exe`
 
@@ -22,6 +24,8 @@ Launch TryDetectThis2.0
 ## What are the execution parents of the flagged hash? List the names chronologically, using a comma as a separator. Note down the hashes for later use.
 
 - Navigate to the "Relations" tab and look for "Execution Parents"
+
+![execution parents](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/execution_parents.png?raw=true)
 
 Hashes of the following files:
 - 361GJX7J - `047c5eec0445746862710d20e50a5dd04510b7e625fa5c1f5d48ce078001c0de`
