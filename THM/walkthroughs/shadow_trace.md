@@ -53,7 +53,6 @@ Navigate to the libraries section of PESTUDIO and look for the DLL related to ne
 
 ### Can you identify the malicious URL from the alert triggered by chrome.exe?
 
-
 `https://reallysecureupdate.tryhatme.com/update.exe`
 
 ### What's the name of the file saved in the alert triggered by chrome.exe?
