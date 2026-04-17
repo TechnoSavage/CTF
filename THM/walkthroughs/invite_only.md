@@ -11,6 +11,8 @@ Launch TryDetectThis2.0
 
 - Search the hash in Virustotal offline
 
+![syshelpers.exe](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/name.png?raw=true)
+
 `syshelpers.exe`
 
 ## What is the file type associated with the flagged SHA256 hash?
@@ -31,6 +33,8 @@ Hashes of the following files:
 
 - Navigate to the "Bahavior" tab and check the first GET request made
 
+![AClient.exe](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/dropped_file.png?raw=true)
+
 `AClient.exe`
 
 ## Research the second hash in question 3 and list the four malicious dropped files in the order they appear (from up to down), separated by commas.
@@ -38,6 +42,8 @@ Hashes of the following files:
 - Go to relations tab after searching the second hash and scroll down.
 
 - Use the one with the red text and exclamations beside them
+
+![Dropped Files](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/dropped_files.png?raw=true)
 
 - Another broken answer in TryHackMe
 
@@ -49,9 +55,13 @@ Hashes of the following files:
 
 - Community tab after searching the IP address
 
+![Asyncrat Report](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/invite_only/report.png?raw=true)
+
 `Asyncrat`
 
 ## What is the title of the original report where these flagged indicators are mentioned? Use Google to find the report.
+
+- Also in the above community entries
 
 `From Trust to Threat: Hijacked Discord Invites Used for Multi-Stage Malware Delivery`
 
@@ -67,7 +77,7 @@ google search
 
 ## What is the name of the platform that was used to redirect a user to malicious servers?
 
-- Report
+- Seen in the community entries and also named right in the report
 
 `Discord`
 
