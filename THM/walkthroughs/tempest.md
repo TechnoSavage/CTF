@@ -123,12 +123,11 @@ Now we turn our attention to the packet capture. We'll use Wireshark to analyze 
 
 You probably even noticed this URL when investigating the logs in that section. Recall that the malicious IP was `167.71.199.191` so we can quickly find this in Wireshark with the following filter
 
-![Doc payload](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/tempest/11.png?raw=true)
-
-
 ```
 ip.dst==167.71.199.191 && http
 ```
+
+![Doc payload](https://github.com/TechnoSavage/CTF/blob/main/THM/walkthroughs/images/tempest/11.png?raw=true)
 
 `http://phishteam.xyz/02dcf07/index.html`
 
@@ -174,6 +173,8 @@ The user-agent field suggests the use of Nim
 ## Discovery - Internal Reconnaissance
 
 ### The attacker was able to discover a sensitive file inside the machine of the user. What is the password discovered on the aforementioned file?
+
+Back to Sysmon to look at some of the additional log entries. When glossing over the logs you may have commands like `whoami` and `netstat` being executed on the host. It's time to focus our attention there.
 
 ``
 
